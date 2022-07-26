@@ -16,10 +16,8 @@ RUN git clone --recursive https://github.com/tdlib/telegram-bot-api.git && \
     ls -l /usr/local/bin/telegram-bot-api*
 
 
-# Release
+# # Release
 FROM alpine:edge
 COPY --from=build /usr/local/bin/telegram-bot-api /usr/local/bin/telegram-bot-api
-RUN apk add --no-cache --update openssl libstdc++
-
-EXPOSE 8081/tcp
-CMD ["sh"]
+RUN apk add --no-cache --update openssl libstdc++ bash
+EXPOSE 8081-8082
