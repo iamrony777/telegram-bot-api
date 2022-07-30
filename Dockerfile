@@ -1,4 +1,4 @@
-FROM alpine:edge AS latest
+FROM alpine:latest AS build
 WORKDIR /app
 
 # Build from  https://tdlib.github.io/telegram-bot-api/build.html?os=Linux
