@@ -1,4 +1,4 @@
-FROM alpine:edge AS build
+FROM alpine:edge AS latest
 WORKDIR /app
 
 # Build from  https://tdlib.github.io/telegram-bot-api/build.html?os=Linux
@@ -18,7 +18,7 @@ RUN git clone --recursive https://github.com/tdlib/telegram-bot-api.git && \
 
 
 # # Release
-FROM alpine:edge
+FROM alpine:latest
 COPY --from=build /usr/local/bin/telegram-bot-api /usr/local/bin/telegram-bot-api
 RUN apk add --no-cache --update openssl libstdc++ bash
 EXPOSE 8081-8082
